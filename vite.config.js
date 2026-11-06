@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   // Relative asset paths work both on username.github.io and project Pages URLs.
-  base: "/",
+  base: "/Portfolio/",
   plugins: [react()],
 });
