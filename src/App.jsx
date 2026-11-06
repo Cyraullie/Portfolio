@@ -484,12 +484,6 @@ function App() {
               </article>
             ))}
           </div>
-          <p className="projects-note">
-            *{" "}
-            {isFr
-              ? "Les liens GitHub sont des exemples à remplacer par les dépôts publics correspondants."
-              : "GitHub links are placeholders — replace them with the relevant public repositories."}
-          </p>
         </section>
 
         <section className="section-wrap contact-section" id="contact">
@@ -500,7 +494,7 @@ function App() {
             <p>{t.contactText}</p>
             <a
               className="button button-primary"
-              href="mailto:hello@example.com"
+              href="mailto:cyril.goldenschue@gmail.com"
             >
               {t.emailMe}
               <Mail size={17} />
