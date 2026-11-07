@@ -197,6 +197,20 @@ const projects = [
     mark: "archipelago",
     github: "https://github.com/Mineteck/archipelago_notifier",
   },
+  {
+    number: "06",
+    name: "CoachTwirling",
+    type: "SPORTS SCORING APPLICATION",
+    description:
+      "A web application for twirling coaches to evaluate athletes and manage their scores within their club.",
+    descriptionFr:
+      "Une application web permettant aux coachs de twirling d'évaluer les athlètes et de gérer leurs notes au sein de leur club.",
+    tags: ["Laravel", "PHP", "JavaScript", "Docker"],
+    tone: "violet",
+    mark: "coachtwirling",
+    github: "https://github.com/Cyraullie/CoachTwirling",
+    image: "/Portfolio/projects/coachtwirling.webp",
+  },
 ];
 
 function App() {
