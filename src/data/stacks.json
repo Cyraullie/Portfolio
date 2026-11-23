@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Backend",
+    "icon": "Server",
+    "items": ["Python", "Django", "PHP", "Laravel", "Node.js", "WebSockets"]
+  },
+  {
+    "title": "Frontend",
+    "icon": "Code2",
+    "items": ["JavaScript", "TypeScript", "React", "Next.js", "HTML & CSS"]
+  },
+  {
+    "title": "Data",
+    "icon": "Database",
+    "items": ["MariaDB", "MySQL", "SQL"]
+  },
+  {
+    "title": "Tools & DevOps",
+    "icon": "Terminal",
+    "items": ["Docker", "Linux", "Git", "GitHub Actions"]
+  }
+]

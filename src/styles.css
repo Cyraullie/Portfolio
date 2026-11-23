@@ -34,7 +34,7 @@ button {
   font: inherit;
 }
 .site-shell {
-  overflow: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(ellipse at 77% 8%, rgba(83, 67, 173, 0.1), transparent 28%),
     var(--bg);
@@ -50,9 +50,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background: rgba(8, 11, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  position: relative;
-  z-index: 5;
 }
 .brand {
   font-size: 29px;
@@ -166,6 +176,7 @@ button {
 }
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 .button {
@@ -280,7 +291,7 @@ button {
   min-height: 250px;
 }
 .code-line {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 .line-no {
   display: inline-block;
@@ -1001,4 +1012,87 @@ button {
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+.preview-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #101521;
+}
+
+.preview-placeholder span {
+  position: absolute;
+  width: 150%;
+  padding: 13px 0;
+  transform: rotate(-12deg);
+  text-align: center;
+  font: 11px var(--mono);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #d8d0ff;
+  background: rgba(155, 140, 255, 0.18);
+  border-top: 1px solid rgba(155, 140, 255, 0.4);
+  border-bottom: 1px solid rgba(155, 140, 255, 0.4);
+}
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border: 1px solid rgba(245, 180, 80, 0.3);
+  border-radius: 20px;
+  background: rgba(245, 180, 80, 0.08);
+  color: #e8b86d;
+  font-size: 10px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 20px;
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-in-progress {
+  color: #e8b86d;
+  background: rgba(245, 180, 80, 0.08);
+  border-color: rgba(245, 180, 80, 0.3);
+}
+
+.status-completed {
+  color: #7dd9a2;
+  background: rgba(80, 200, 130, 0.08);
+  border-color: rgba(80, 200, 130, 0.3);
+}
+
+.status-maintained {
+  color: #8dbbff;
+  background: rgba(80, 140, 255, 0.08);
+  border-color: rgba(80, 140, 255, 0.3);
 }

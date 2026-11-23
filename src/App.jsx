@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
+  Download,
   Github,
   Linkedin,
   Mail,
@@ -10,211 +11,29 @@ import {
   Code2,
   Database,
   Server,
-  Layers3,
   Terminal,
   Globe2,
-  ExternalLink,
 } from "lucide-react";
+import projects from "./data/projects.json";
+import copy from "./data/translations.json";
+import stacks from "./data/stacks.json";
 
-const copy = {
-  en: {
-    nav: ["About", "Stack", "Projects", "Contact"],
-    availability: "Open to opportunities",
-    eyebrow: "BACKEND-FOCUSED · FULLSTACK DEVELOPER",
-    headlineA: "I build the systems",
-    headlineB: "behind the experience.",
-    intro:
-      "I’m a web developer focused on backend engineering and fullstack applications. I enjoy turning complex ideas into reliable, well-structured products.",
-    projectsCta: "Explore projects",
-    contactCta: "Get in touch",
-    scroll: "SCROLL TO EXPLORE",
-    aboutLabel: "A LITTLE ABOUT ME",
-    aboutTitle: "Thoughtful engineering. Useful products.",
-    aboutText:
-      "I’m a developer who likes understanding how things work under the hood: data models, APIs, authentication, application architecture and deployment. I also enjoy connecting that foundation to clean, intuitive interfaces.",
-    aboutText2:
-      "My learning path has been shaped by hands-on projects and the practical, problem-solving mindset I developed at 42 Lausanne. I value readable code, clear responsibilities and solutions that are built to evolve.",
-    facts: [
-      ["FOCUS", "Backend & fullstack"],
-      ["BASED IN", "Lausanne, Switzerland"],
-      ["APPROACH", "Build · Learn · Improve"],
-    ],
-    stackLabel: "TOOLS OF THE TRADE",
-    stackTitle: "My technical toolkit.",
-    stackText:
-      "The technologies I use to design, build and ship web applications.",
-    projectsLabel: "SELECTED WORK",
-    projectsTitle: "A few things I’ve built.",
-    projectsText:
-      "A selection of projects that reflect my interests in application architecture, backend logic and real-time experiences.",
-    viewCode: "View source",
-    aboutProject: "PROJECT",
-    contactLabel: "LET’S CONNECT",
-    contactTitle: "Have a project in mind?",
-    contactText:
-      "I’m always happy to talk about web development, interesting technical challenges or new opportunities.",
-    emailMe: "Send me an email",
-    footer: "Designed & built with React.",
-    top: "BACK TO TOP",
-    language: "FR",
-    languageName: "Français",
-  },
-  fr: {
-    nav: ["À propos", "Stack", "Projets", "Contact"],
-    availability: "Ouvert aux opportunités",
-    eyebrow: "DÉVELOPPEUR BACKEND · FULLSTACK",
-    headlineA: "Je construis les systèmes",
-    headlineB: "qui font vivre le web.",
-    intro:
-      "Développeur web orienté backend et fullstack, j’aime transformer des idées complexes en applications fiables, structurées et agréables à utiliser.",
-    projectsCta: "Voir mes projets",
-    contactCta: "Me contacter",
-    scroll: "DÉFILER POUR EXPLORER",
-    aboutLabel: "À PROPOS DE MOI",
-    aboutTitle: "De l’ingénierie réfléchie. Des produits utiles.",
-    aboutText:
-      "J’aime comprendre ce qui se passe sous le capot : modèles de données, API, authentification, architecture applicative et déploiement. J’apprécie aussi de relier cette base technique à des interfaces claires et intuitives.",
-    aboutText2:
-      "Mon parcours se construit à travers des projets concrets et l’approche pratique de résolution de problèmes développée à 42 Lausanne. J’accorde de l’importance au code lisible, aux responsabilités bien définies et aux solutions capables d’évoluer.",
-    facts: [
-      ["SPÉCIALITÉ", "Backend & fullstack"],
-      ["LOCALISATION", "Lausanne, Suisse"],
-      ["APPROCHE", "Construire · Apprendre · Améliorer"],
-    ],
-    stackLabel: "MES OUTILS",
-    stackTitle: "Ma boîte à outils technique.",
-    stackText:
-      "Les technologies que j’utilise pour concevoir, développer et déployer des applications web.",
-    projectsLabel: "PROJETS SÉLECTIONNÉS",
-    projectsTitle: "Quelques réalisations.",
-    projectsText:
-      "Une sélection de projets qui reflètent mon intérêt pour l’architecture applicative, la logique backend et les expériences en temps réel.",
-    viewCode: "Voir le code",
-    aboutProject: "PROJET",
-    contactLabel: "RESTONS EN CONTACT",
-    contactTitle: "Un projet en tête ?",
-    contactText:
-      "Je suis toujours partant pour échanger autour du développement web, de défis techniques intéressants ou de nouvelles opportunités.",
-    emailMe: "M’envoyer un email",
-    footer: "Conçu et développé avec React.",
-    top: "RETOUR EN HAUT",
-    language: "EN",
-    languageName: "English",
-  },
+// TODO: mets l'URL du dépôt dans `github` pour Camagru, Polls et QPUM.
+// Tant que c'est `null`, le bouton "Voir le code" n'est pas affiché.
+
+const stackIcons = {
+  Server,
+  Code2,
+  Database,
+  Terminal,
 };
 
-const stacks = [
-  {
-    title: "Backend",
-    icon: Server,
-    items: ["Python", "Django", "PHP", "Laravel", "Node.js", "REST APIs"],
-  },
-  {
-    title: "Frontend",
-    icon: Code2,
-    items: ["JavaScript", "TypeScript", "React", "Next.js", "HTML & CSS"],
-  },
-  {
-    title: "Data",
-    icon: Database,
-    items: ["MariaDB", "MySQL", "SQL", "Data modeling"],
-  },
-  {
-    title: "Tools & DevOps",
-    icon: Terminal,
-    items: ["Docker", "Linux", "Git", "GitHub Actions", "WebSockets"],
-  },
-];
-
-const projects = [
-  {
-    number: "01",
-    name: "Camagru",
-    type: "PHOTO SHARING APPLICATION",
-    image: "/Portfolio/projects/camagru.webp",
-    description:
-      "A photo-sharing web application with account management, secure authentication, image uploads and community interactions.",
-    descriptionFr:
-      "Une application de partage de photos avec gestion de compte, authentification, envoi d’images et interactions entre utilisateurs.",
-    tags: ["PHP", "MySQL", "Docker", "MVC"],
-    tone: "violet",
-    mark: "camagru",
-    github: "https://github.com/",
-  },
-  {
-    number: "02",
-    name: "Polls",
-    type: "POLLING PROGRESSIVE WEB APP",
-    image: "/Portfolio/projects/pollpwa.webp",
-    description:
-      "A polling application built around poll and option management, voting rules and a responsive app experience.",
-    descriptionFr:
-      "Une application de sondages avec gestion des questions et options, règles de vote et expérience responsive.",
-    tags: ["Laravel", "React", "Inertia", "PWA"],
-    tone: "blue",
-    mark: "polls",
-    github: "https://github.com/",
-  },
-  {
-    number: "03",
-    name: "QPUM",
-    type: "MULTIPLAYER QUIZ PLATFORM",
-    image: "/Portfolio/projects/QPUM.webp",
-    description:
-      "A multiplayer quiz experience with teams, sessions and real-time communication powered by WebSockets.",
-    descriptionFr:
-      "Une expérience de quiz multijoueur avec équipes, sessions et communication en temps réel grâce aux WebSockets.",
-    tags: ["Django", "React", "WebSockets", "Docker"],
-    tone: "green",
-    mark: "qpum",
-    github: "https://github.com/",
-  },
-  {
-    number: "04",
-    name: "Library Pi",
-    type: "PERSONAL LIBRARY MANAGEMENT",
-    image: "/Portfolio/projects/Library_pi.webp",
-    description:
-      "A personal library management application that allows users to build and manage their book collections by scanning book barcodes, with a self-hosted Raspberry Pi approach.",
-    descriptionFr:
-      "Une application de gestion de bibliothèque personnelle permettant de constituer et gérer sa collection de livres grâce au scan de codes-barres, avec une approche d’auto-hébergement sur Raspberry Pi.",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Raspberry Pi"],
-    tone: "orange",
-    mark: "library",
-    github: "https://github.com/Cyraullie/Library_pi",
-  },
-  {
-    number: "05",
-    name: "Archipelago Notifier",
-    type: "DISCORD NOTIFICATION BOT",
-    image: "/Portfolio/projects/Archipelago_notifier.webp",
-    description:
-      "A Discord bot that monitors Archipelago sessions and sends real-time notifications about player activity, item deliveries and hints to server members.",
-    descriptionFr:
-      "Un bot Discord qui surveille les sessions Archipelago et transmet des notifications en temps réel concernant l'activité des joueurs, les échanges d'objets et les indices.",
-    tags: ["Discord.js", "TypeScript", "Node.js", "API Integration"],
-    tone: "blue",
-    mark: "archipelago",
-    github: "https://github.com/Mineteck/archipelago_notifier",
-  },
-  {
-    number: "06",
-    name: "CoachTwirling",
-    type: "SPORTS SCORING APPLICATION",
-    description:
-      "A web application for twirling coaches to evaluate athletes and manage their scores within their club.",
-    descriptionFr:
-      "Une application web permettant aux coachs de twirling d'évaluer les athlètes et de gérer leurs notes au sein de leur club.",
-    tags: ["Laravel", "PHP", "JavaScript", "Docker"],
-    tone: "violet",
-    mark: "coachtwirling",
-    github: "https://github.com/Cyraullie/CoachTwirling",
-    image: "/Portfolio/projects/coachtwirling.webp",
-  },
-];
-
 function App() {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState(
+    typeof navigator !== "undefined" && navigator.language?.startsWith("fr")
+      ? "fr"
+      : "en",
+  );
   const [menuOpen, setMenuOpen] = useState(false);
   const t = copy[lang];
   const isFr = lang === "fr";
@@ -224,7 +43,7 @@ function App() {
   return (
     <div className="site-shell">
       <header className="header">
-        <a className="brand" href="#home" aria-label="Home">
+        <a className="brand" href="#home" aria-label={t.homeLabel}>
           cg<span>.</span>
         </a>
         <nav className={menuOpen ? "nav nav-open" : "nav"}>
@@ -242,7 +61,7 @@ function App() {
           <button
             className="language-switch"
             onClick={() => setLang(isFr ? "en" : "fr")}
-            aria-label={`Switch language to ${t.languageName}`}
+            aria-label={`${t.switchLabel} ${t.languageName}`}
           >
             <Globe2 size={15} /> {t.language}
           </button>
@@ -253,7 +72,7 @@ function App() {
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle navigation"
+            aria-label={t.menuLabel}
           >
             {menuOpen ? <X /> : <Menu />}
           </button>
@@ -282,6 +101,19 @@ function App() {
                 {t.contactCta}
                 <ArrowUpRight size={17} />
               </a>
+
+              <a
+                className="button button-quiet"
+                href={`${import.meta.env.BASE_URL}cv-cyril-goldenschue.pdf`}
+                download
+              >
+                {t.cvCta}
+                <Download size={17} />
+              </a>
+              <a className="button button-quiet" href="#contact">
+                {t.contactCta}
+                <ArrowUpRight size={17} />
+              </a>
             </div>
             <div className="hero-socials">
               <a
@@ -302,7 +134,7 @@ function App() {
               <span>Lausanne, CH</span>
             </div>
           </div>
-          <div className="hero-visual" aria-label="Abstract code illustration">
+          <div className="hero-visual" aria-label={t.timelineLabel}>
             <div className="visual-glow" />
             <div className="code-window">
               <div className="window-top">
@@ -311,73 +143,18 @@ function App() {
                   <i />
                   <i />
                 </div>
-                <span>developer.ts</span>
-                <span className="window-lock">●</span>
+                <span>{t.timelineTitle}</span>
               </div>
               <div className="code-content">
-                <div className="code-line">
-                  <span className="line-no">01</span>
-                  <span className="syntax-purple">const</span> developer = {"{"}
-                </div>
-                <div className="code-line indent">
-                  <span className="line-no">02</span>
-                  <span className="syntax-blue">focus</span>:{" "}
-                  <span className="syntax-green">"backend"</span>,
-                </div>
-                <div className="code-line indent">
-                  <span className="line-no">03</span>
-                  <span className="syntax-blue"> mindset</span>:{" "}
-                  <span className="syntax-green">"fullstack"</span>,
-                </div>
-                <div className="code-line indent">
-                  <span className="line-no">04</span>
-                  <span className="syntax-blue">build</span>: [
-                </div>
-                <div className="code-line indent2">
-                  <span className="line-no">05</span>
-                  <span className="syntax-orange">"APIs"</span>,{" "}
-                  <span className="syntax-orange">"systems"</span>,
-                </div>
-                <div className="code-line indent2">
-                  <span className="line-no">06</span>
-                  <span className="syntax-orange">"experiences"</span>
-                </div>
-                <div className="code-line indent">
-                  <span className="line-no">07</span>],
-                </div>
-                <div className="code-line">
-                  <span className="line-no">08</span>
-                  {"}"};
-                </div>
-                <div className="code-cursor" />
+                {t.timeline.map(([years, label]) => (
+                  <div className="code-line" key={label}>
+                    <span className="line-no" style={{ minWidth: "4.5em" }}>
+                      {years}
+                    </span>
+                    {label}
+                  </div>
+                ))}
               </div>
-              <div className="window-bottom">
-                <span>
-                  <span className="tiny-green" /> All systems operational
-                </span>
-                <span>UTF-8&nbsp; · &nbsp;TypeScript</span>
-              </div>
-            </div>
-            <div className="floating-card card-api">
-              <span className="float-icon">
-                <Layers3 size={16} />
-              </span>
-              <span>
-                <b>API DESIGN</b>
-                <small>Clean architecture</small>
-              </span>
-            </div>
-            <div className="floating-card card-db">
-              <span className="float-icon blue-icon">
-                <Database size={16} />
-              </span>
-              <span>
-                <b>DATA LAYER</b>
-                <small>Reliable by design</small>
-              </span>
-            </div>
-            <div className="visual-caption">
-              <span /> BUILDING WITH PURPOSE
             </div>
           </div>
           <a className="scroll-cue" href="#about">
@@ -420,24 +197,30 @@ function App() {
             <p className="section-description">{t.stackText}</p>
           </div>
           <div className="stack-grid">
-            {stacks.map(({ title, icon: Icon, items }, i) => (
-              <article className="stack-card" key={title}>
-                <div className="stack-card-top">
-                  <span className="stack-icon">
-                    <Icon size={19} />
-                  </span>
-                  <span className="mono">0{i + 1}</span>
-                </div>
-                <h3>{title}</h3>
-                <div className="tag-list">
-                  {items.map((item) => (
-                    <span className="tag" key={item}>
-                      {item}
+            {stacks.map(({ title, icon, items }, i) => {
+              const Icon = stackIcons[icon];
+
+              return (
+                <article className="stack-card" key={title}>
+                  <div className="stack-card-top">
+                    <span className="stack-icon">
+                      <Icon size={19} />
                     </span>
-                  ))}
-                </div>
-              </article>
-            ))}
+                    <span className="mono">0{i + 1}</span>
+                  </div>
+
+                  <h3>{title}</h3>
+
+                  <div className="tag-list">
+                    {items.map((item) => (
+                      <span className="tag" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -467,13 +250,40 @@ function App() {
                       <span>{project.name.toLowerCase()}.app</span>
                     </div>
                     <div className={`preview-art art-${project.mark}`}>
-                      <img src={`${project.image}`}></img>
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={`${project.name} ${t.screenshot}`}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="preview-placeholder">
+                          <span>
+                            {isFr
+                              ? "CAPTURE À VENIR"
+                              : "SCREENSHOT COMING SOON"}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <span className="preview-index">{project.number}</span>
                 </div>
                 <div className="project-info">
                   <p className="project-type">{project.type}</p>
+                  {project.status && (
+                    <span className={`project-status status-${project.status}`}>
+                      {
+                        {
+                          "in-progress": isFr
+                            ? "En développement"
+                            : "In progress",
+                          completed: isFr ? "Terminé" : "Completed",
+                          maintained: isFr ? "Maintenu" : "Maintained",
+                        }[project.status]
+                      }
+                    </span>
+                  )}
                   <h3>{project.name}</h3>
                   <p className="project-description">
                     {isFr ? project.descriptionFr : project.description}
@@ -485,15 +295,17 @@ function App() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    className="text-link"
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {t.viewCode}
-                    <ArrowUpRight size={16} />
-                  </a>
+                  {project.github && (
+                    <a
+                      className="text-link"
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t.viewCode}
+                      <ArrowUpRight size={16} />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -514,21 +326,11 @@ function App() {
               <Mail size={17} />
             </a>
           </div>
-          <div className="contact-decoration">
-            <Code2 size={104} strokeWidth={0.7} />
-            <span>
-              01001
-              <br />
-              10110
-              <br />
-              01010
-            </span>
-          </div>
         </section>
       </main>
 
       <footer className="footer section-wrap">
-        <a className="brand" href="#home">
+        <a className="brand" href="#home" aria-label={t.homeLabel}>
           cg<span>.</span>
         </a>
         <p>

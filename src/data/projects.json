@@ -1,0 +1,80 @@
+[
+  {
+    "number": "01",
+    "status": "in-progress",
+    "name": "Camagru",
+    "type": "PHOTO SHARING · 42 PROJECT",
+    "image": null,
+    "description": "Photo sharing site. Users create an account, upload and edit images, and interact with each other's pictures in a gallery.",
+    "descriptionFr": "Site de partage de photos. Les utilisateurs créent un compte, envoient et retouchent des images, et réagissent aux photos des autres dans une galerie.",
+    "tags": ["PHP", "MySQL", "Docker", "MVC"],
+    "tone": "violet",
+    "mark": "camagru",
+    "github": null
+  },
+  {
+    "number": "02",
+    "status": "in-progress",
+    "name": "Polls",
+    "type": "POLLING PWA",
+    "image": null,
+    "description": "Installable polling app. Users have accounts, create polls with options, vote under set rules, and get a push notification when someone creates a new poll.",
+    "descriptionFr": "Application de sondages installable. Les utilisateurs ont un compte, créent des sondages avec des options, votent selon des règles définies et reçoivent une notification push quand quelqu'un crée un sondage.",
+    "tags": ["Laravel", "React", "Inertia", "PWA"],
+    "tone": "blue",
+    "mark": "polls",
+    "github": null
+  },
+  {
+    "number": "03",
+    "status": "in-progress",
+    "name": "QPUM",
+    "type": "MULTIPLAYER QUIZ",
+    "image": "/Portfolio/projects/QPUM.webp",
+    "description": "Multiplayer quiz with teams and game sessions. WebSockets keep players in sync in real time.",
+    "descriptionFr": "Quiz multijoueur avec équipes et sessions de jeu. Les WebSockets synchronisent les joueurs en temps réel.",
+    "tags": ["Django", "React", "WebSockets", "Docker"],
+    "tone": "green",
+    "mark": "qpum",
+    "github": null
+  },
+  {
+    "number": "04",
+    "status": "maintained",
+    "name": "Library Pi",
+    "type": "PERSONAL LIBRARY",
+    "image": "/Portfolio/projects/Library_pi.webp",
+    "description": "Scan a book's barcode to add it to your collection. Self-hosted on a Raspberry Pi.",
+    "descriptionFr": "Il suffit de scanner le code-barres d'un livre pour l'ajouter à sa collection. Auto-hébergé sur un Raspberry Pi.",
+    "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Raspberry Pi"],
+    "tone": "orange",
+    "mark": "library",
+    "github": "https://github.com/Cyraullie/Library_pi"
+  },
+  {
+    "number": "05",
+    "status": "maintained",
+    "name": "Archipelago Notifier",
+    "type": "DISCORD BOT",
+    "image": "/Portfolio/projects/Archipelago_notifier.webp",
+    "description": "Discord bot that watches Archipelago sessions and posts player activity, item deliveries and hints to the server.",
+    "descriptionFr": "Bot Discord qui surveille les sessions Archipelago et publie sur le serveur l'activité des joueurs, les échanges d'objets et les indices.",
+    "tags": ["Discord.js", "TypeScript", "Node.js"],
+    "tone": "blue",
+    "mark": "archipelago",
+    "github": "https://github.com/Mineteck/archipelago_notifier"
+  },
+  {
+    "number": "06",
+    "status": "maintained",
+    "name": "CoachTwirling",
+    "type": "SCORING APP",
+    "image": null,
+    "description": "Web app where twirling coaches score their athletes and manage the results for their club.",
+    "descriptionFr": "Application web où les coachs de twirling notent leurs athlètes et gèrent les résultats de leur club.",
+    "tags": ["Laravel", "PHP", "JavaScript", "Docker"],
+    "tone": "violet",
+    "mark": "coachtwirling",
+    "github": "https://github.com/Cyraullie/CoachTwirling"
+  }
+]
