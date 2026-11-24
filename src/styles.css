@@ -1096,3 +1096,17 @@ button {
   background: rgba(80, 140, 255, 0.08);
   border-color: rgba(80, 140, 255, 0.3);
 }
+.project-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.project-links .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}

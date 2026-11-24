@@ -295,17 +295,30 @@ function App() {
                       </span>
                     ))}
                   </div>
-                  {project.github && (
-                    <a
-                      className="text-link"
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {t.viewCode}
-                      <ArrowUpRight size={16} />
-                    </a>
-                  )}
+                  <div className="project-links">
+                    {project.github && (
+                      <a
+                        className="text-link"
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {t.viewCode}
+                        <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                    {project.githubApi && (
+                      <a
+                        className="text-link"
+                        href={project.githubApi}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        API
+                        <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}

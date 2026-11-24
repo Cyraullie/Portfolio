@@ -97,5 +97,27 @@
     "tone": "violet",
     "mark": "transcendence",
     "github": "https://github.com/Popcode-The-playing-card-corporation/transcendence"
+  },
+  {
+    "number": "08",
+    "name": "Mob_Nextep",
+    "status": "completed",
+    "type": "MOBILE & BACKEND APPLICATION",
+    "image": null,
+    "description": "A mobile application built with React Native and Expo, connected to a Laravel API. It integrates MetaMask and BscScan to interact with the BNB Smart Chain, with features including user profiles, wallet management, authentication and voting.",
+    "descriptionFr": "Une application mobile développée avec React Native et Expo, connectée à une API Laravel. Elle intègre MetaMask et BscScan pour interagir avec la blockchain BNB Smart Chain, avec notamment la gestion des profils, des portefeuilles, de l'authentification et des votes.",
+    "tags": [
+      "React Native",
+      "Expo",
+      "Laravel",
+      "PHP",
+      "MetaMask",
+      "BscScan",
+      "Blockchain"
+    ],
+    "tone": "blue",
+    "mark": "mob-nextep",
+    "github": "https://github.com/Cyraullie/Mob_Nextep",
+    "githubApi": "https://github.com/Cyraullie/NextepApi"
   }
 ]
