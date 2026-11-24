@@ -76,5 +76,26 @@
     "tone": "violet",
     "mark": "coachtwirling",
     "github": "https://github.com/Cyraullie/CoachTwirling"
+  },
+  {
+    "number": "07",
+    "status": "completed",
+    "name": "Transcendence",
+    "type": "MULTIPLAYER CARD GAME · 42 FINAL PROJECT",
+    "image": "/Portfolio/projects/Popcard.webp",
+    "description": "Online multiplayer card game based on the Swiss game La Misère. Features real-time matches, matchmaking rooms, friends, chat, AI opponents and OAuth authentication. I worked as Tech Lead, focusing on backend architecture, database management, APIs and WebSocket communication.",
+    "descriptionFr": "Jeu de cartes multijoueur en ligne basé sur le jeu suisse La Misère. Il propose des parties en temps réel, des salons de jeu, un système d'amis, un chat, des adversaires IA et une authentification OAuth. J'ai occupé le rôle de Tech Lead, avec un travail axé sur l'architecture backend, la gestion de la base de données, les API et les communications WebSocket.",
+    "tags": [
+      "Python",
+      "Django",
+      "React",
+      "TypeScript",
+      "WebSockets",
+      "MariaDB",
+      "Docker"
+    ],
+    "tone": "violet",
+    "mark": "transcendence",
+    "github": "https://github.com/Popcode-The-playing-card-corporation/transcendence"
   }
 ]
